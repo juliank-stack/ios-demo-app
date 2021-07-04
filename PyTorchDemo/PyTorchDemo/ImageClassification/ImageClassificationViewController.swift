@@ -30,8 +30,8 @@ class ImageClassificationViewController: ViewController {
                     strongSelf.indicator.isHidden = true
                     strongSelf.bottomView.isHidden = false
                     strongSelf.benchmarkLabel.isHidden = false
-                    strongSelf.benchmarkLabel.text = String(format: "%.2fms", results.1)
-                    strongSelf.bottomView.update(results: results.0)
+                    strongSelf.benchmarkLabel.text = String(results.1)
+                    strongSelf.bottomView.update(results :results.0)
                 }
             }
         }

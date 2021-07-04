@@ -3,8 +3,8 @@ import Foundation
 
 class CameraController: NSObject {
     var videoCaptureCompletionBlock: (([Float32]?, CameraControllerError?) -> Void)?
-    private let inputWidth = 224
-    private let inputHeight = 224
+    private let inputWidth = 196
+    private let inputHeight = 256
     private var captureSession = AVCaptureSession()
     private var videoOutput = AVCaptureVideoDataOutput()
     private var sessionQueue = DispatchQueue(label: "session")

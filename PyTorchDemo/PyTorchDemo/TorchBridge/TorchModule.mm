@@ -30,16 +30,19 @@
 
 - (NSArray<NSNumber*>*)predictImage:(void*)imageBuffer {
   try {
-    at::Tensor tensor = torch::from_blob(imageBuffer, {1, 3, 224, 224}, at::kFloat);
+    at::Tensor tensor = torch::from_blob(imageBuffer, {3,256,192}, at::kFloat);
+    at::Tensor unsqueezed = tensor.unsqueeze(0);
     torch::autograd::AutoGradMode guard(false);
     at::AutoNonVariableTypeMode non_var_type_mode(true);
-    auto outputTensor = _impl.forward({tensor}).toTensor();
+    // Erwartete Tensorgröße {1,17,64,48}
+    at::Tensor outputTensor = _impl.forward({unsqueezed}).toTensor();
+    std::cout << outputTensor << std::endl;
     float* floatBuffer = outputTensor.data_ptr<float>();
     if (!floatBuffer) {
       return nil;
     }
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 4000; i++) {
       [results addObject:@(floatBuffer[i])];
     }
     return [results copy];

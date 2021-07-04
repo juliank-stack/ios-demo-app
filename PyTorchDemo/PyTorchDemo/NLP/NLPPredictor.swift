@@ -15,14 +15,16 @@ class NLPPredictor: Predictor {
         topics = loadTopics()
     }
 
-    func predict(_ text: String, resultCount: Int) throws -> [InferenceResult]? {
+    func predict(_ text: String, resultCount: Int) throws -> Int? {
         if text.isEmpty {
             throw PredictorError.invalidInputTensor
         }
         guard let outputs = module.predict(text: text) else {
             throw PredictorError.invalidInputTensor
         }
-        return topK(scores: outputs, labels: topics, count: resultCount)
+        let result = 1
+        //return topK(scores: outputs, labels: topics, count: resultCount)
+        return result
     }
 
     private func loadTopics() -> [String] {

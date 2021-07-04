@@ -29,11 +29,12 @@ class NLPResultView: UIView {
         }
     }
 
-    func update(results: [InferenceResult]) {
-        for index in 0 ..< results.count {
-            let itemView = itemViews[index]
-            itemView.resultLabel.text = results[index].label
-            itemView.scoreLabel.text = String(format: "%.2f", results[index].score)
-        }
+    func update(results: Int) {
+//        for index in 0 ..< results.count {
+//            let itemView = itemViews[index]
+//            itemView.resultLabel.text = results[index].label
+//            itemView.scoreLabel.text = String(format: "%.2f", results[index].score)
+//        }
+
     }
 }

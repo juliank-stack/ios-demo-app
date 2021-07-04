@@ -20,7 +20,7 @@ class ImagePredictor: Predictor {
         }
     }()
 
-    func predict(_ buffer: [Float32], resultCount: Int) throws -> ([InferenceResult], Double)? {
+    func predict(_ buffer: [Float32], resultCount: Int) throws -> (Int, Double)? {
         if isRunning {
             return nil
         }
@@ -32,7 +32,8 @@ class ImagePredictor: Predictor {
         }
         isRunning = false
         let inferenceTime = (CACurrentMediaTime() - startTime) * 1000
-        let results = topK(scores: outputs, labels: labels, count: resultCount)
+        let results = 1
+        //let results = topK(scores: outputs, labels: labels, count: resultCount)
         return (results, inferenceTime)
     }
 }
