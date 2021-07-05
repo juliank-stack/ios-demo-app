@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TorchModule : NSObject
@@ -13,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VisionTorchModule : TorchModule
 - (nullable NSArray<NSNumber*>*)predictImage:(void*)imageBuffer NS_SWIFT_NAME(predict(image:));
+//- (cv::Mat) matFromImageBuffer: (CVImageBufferRef) buffer;
 @end
 
 @interface NLPTorchModule : TorchModule

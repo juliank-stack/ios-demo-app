@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4769CD0426935F69004F11EC /* unoptimized_transPose.pt in Resources */ = {isa = PBXBuildFile; fileRef = 4769CD0326935F69004F11EC /* unoptimized_transPose.pt */; };
+		47735FC226933B7C00FC002F /* mobilenet_transPose2.pt in Resources */ = {isa = PBXBuildFile; fileRef = 47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */; };
 		479C96A82690A347000B5674 /* mobilenet_transPose.pt in Resources */ = {isa = PBXBuildFile; fileRef = 479C96A72690A346000B5674 /* mobilenet_transPose.pt */; };
 		A01F52AC233C6C32004039FC /* topics.txt in Resources */ = {isa = PBXBuildFile; fileRef = A01F52AB233C6C32004039FC /* topics.txt */; };
 		A01F52AE233C985C004039FC /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F52AD233C985C004039FC /* Predictor.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		31BA85984F6BA5A79F5994FE /* Pods-PyTorchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PyTorchDemo.debug.xcconfig"; path = "Target Support Files/Pods-PyTorchDemo/Pods-PyTorchDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4769CD0326935F69004F11EC /* unoptimized_transPose.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = unoptimized_transPose.pt; sourceTree = "<group>"; };
+		47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobilenet_transPose2.pt; sourceTree = "<group>"; };
 		479C96A72690A346000B5674 /* mobilenet_transPose.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobilenet_transPose.pt; sourceTree = SOURCE_ROOT; };
 		8E8B9985A0DE1CFCD23EA1FE /* libPods-PyTorchDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PyTorchDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01F52AB233C6C32004039FC /* topics.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = topics.txt; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 		A091B7582330778B0008A5B8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				4769CD0326935F69004F11EC /* unoptimized_transPose.pt */,
+				47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */,
 				B1C35BA625C99B5200CAB118 /* trace_model.py */,
 				A065C92A2335711B006BEAAD /* words.txt */,
 				479C96A72690A346000B5674 /* mobilenet_transPose.pt */,
@@ -306,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A065C92B2335711B006BEAAD /* words.txt in Resources */,
+				4769CD0426935F69004F11EC /* unoptimized_transPose.pt in Resources */,
 				A036EA30233B1C0B00054A36 /* NLPModelCard.xib in Resources */,
 				A03349C0233D6A7E003425FD /* ImageClassificationResultView.xib in Resources */,
 				A091B1A123303F2D0008A5B8 /* LaunchScreen.storyboard in Resources */,
@@ -313,6 +320,7 @@
 				479C96A82690A347000B5674 /* mobilenet_transPose.pt in Resources */,
 				A03349CA233DAE9F003425FD /* NLPResultView.xib in Resources */,
 				A03349C4233D71F2003425FD /* ImageClassificationItemView.xib in Resources */,
+				47735FC226933B7C00FC002F /* mobilenet_transPose2.pt in Resources */,
 				A036EA33233C19F500054A36 /* reddit.pt in Resources */,
 				B1C35BA725C99B5200CAB118 /* trace_model.py in Resources */,
 				A03349CE233DB128003425FD /* NLPItemView.xib in Resources */,
@@ -406,7 +414,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -438,7 +446,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -468,7 +476,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -500,7 +508,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

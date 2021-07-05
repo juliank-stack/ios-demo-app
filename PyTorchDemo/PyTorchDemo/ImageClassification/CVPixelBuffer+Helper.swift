@@ -32,9 +32,14 @@ extension CVPixelBuffer {
         // normalize the pixel buffer
         // see https://pytorch.org/hub/pytorch_vision_mobilenet_v2/ for more detail
         for i in 0 ..< width * height {
-            normalizedBuffer[i] = (Float32(dstData.load(fromByteOffset: i * 4 + 2, as: UInt8.self)) / 255.0 - 0.485) / 0.229 // R
+            //normalizedBuffer[i] = (Float32(dstData.load(fromByteOffset: i * 4 + 2, as: UInt8.self)) / 255.0 - 0.485) / 0.229 // R
+            //normalizedBuffer[width * height + i] = (Float32(dstData.load(fromByteOffset: i * 4 + 1, as: UInt8.self)) / 255.0 - 0.456) / 0.224 // G
+            //normalizedBuffer[width * height * 2 + i] = (Float32(dstData.load(fromByteOffset: i * 4 + 0, as: UInt8.self)) / 255.0 - 0.406) / 0.22// B
+            
+            // BGR Test
+            normalizedBuffer[i] = (Float32(dstData.load(fromByteOffset: i * 4 + 0, as: UInt8.self)) / 255.0 - 0.485) / 0.229 // B
             normalizedBuffer[width * height + i] = (Float32(dstData.load(fromByteOffset: i * 4 + 1, as: UInt8.self)) / 255.0 - 0.456) / 0.224 // G
-            normalizedBuffer[width * height * 2 + i] = (Float32(dstData.load(fromByteOffset: i * 4 + 0, as: UInt8.self)) / 255.0 - 0.406) / 0.225 // B
+            normalizedBuffer[width * height * 2 + i] = (Float32(dstData.load(fromByteOffset: i * 4 + 2, as: UInt8.self)) / 255.0 - 0.406) / 0.22// R
         }
         free(dstData)
         return normalizedBuffer

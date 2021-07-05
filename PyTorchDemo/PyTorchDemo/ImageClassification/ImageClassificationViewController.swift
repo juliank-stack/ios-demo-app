@@ -1,6 +1,7 @@
 import AVFoundation
 import UIKit
 
+
 class ImageClassificationViewController: ViewController {
     @IBOutlet var cameraView: CameraPreviewView!
     @IBOutlet var bottomView: ImageClassificationResultView!
@@ -10,7 +11,15 @@ class ImageClassificationViewController: ViewController {
     private var cameraController = CameraController()
     private let delayMs: Double = 500
     private var prevTimestampMs: Double = 0.0
-
+    private var firstTime = 0
+    struct PixelData {
+        var a: UInt8
+        var r: UInt8
+        var g: UInt8
+        var b: UInt8
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bottomView.config(resultCount: 3)
@@ -28,15 +37,98 @@ class ImageClassificationViewController: ViewController {
             if let results = try? strongSelf.predictor.predict(pixelBuffer, resultCount: 3) {
                 DispatchQueue.main.async {
                     strongSelf.indicator.isHidden = true
-                    strongSelf.bottomView.isHidden = false
+                    strongSelf.bottomView.isHidden = true
                     strongSelf.benchmarkLabel.isHidden = false
-                    strongSelf.benchmarkLabel.text = String(results.1)
-                    strongSelf.bottomView.update(results :results.0)
+                    
+                    
+
+                    //let red = PixelData(a: 100, r: 255, g: 0, b: 0)
+                    //let green = PixelData(a: 100, r: 0, g: 255, b: 0)
+                    //let blue = PixelData(a: 100, r: 0, g: 0, b: 255)
+                    let swiftArray: [Double] = results.0.compactMap({ $0 as? Double })
+                    for hm in 1...1 {
+                        var pixels = [PixelData]()
+                        let slice: ArraySlice<Double>
+                        let overBorder = hm * 3072 - 1
+                        let underBorder = overBorder - 3071
+                        slice = swiftArray[underBorder...overBorder]
+                        let max = slice.max()
+                        //let min = slice.min()
+                        
+                        for x in underBorder...overBorder {
+                            if slice[x] == max {
+                                //pixels.append(PixelData(a: UInt8(slice[x]*255/max!),  r:   255   ,g:0,b:0))
+                            }
+                            else {
+                                //pixels.append(PixelData(a: 0,  r:   0   ,g:0,b:0))
+                            }
+                            //let val = UInt8(slice[x]*255/max!)
+                            pixels.append(PixelData(a: UInt8(slice[x]*255/max!),  r:   255   ,g:0,b:0))
+                            
+                        }
+                        
+                        let image = self!.imageFromARGB32Bitmap(pixels: pixels, width: 48, height: 64)
+                        let imageView = UIImageView(image: image!)
+                        imageView.frame = CGRect(x: 100, y: 100, width: 48*6, height: 64*6)
+                        //imageView.transform = imageView.transform.rotated(by: .pi / 2)
+                        strongSelf.cameraView.addSubview(imageView)
+                    }
+                    
+                    if self!.firstTime == 1 {
+                        //print("delete")
+                        strongSelf.cameraView.subviews[4].removeFromSuperview()
+//                        strongSelf.cameraView.subviews[5].removeFromSuperview()
+//                        strongSelf.cameraView.subviews[6].removeFromSuperview()
+//                        strongSelf.cameraView.subviews[7].removeFromSuperview()
+//                        strongSelf.cameraView.subviews[8].removeFromSuperview()
+//                        strongSelf.cameraView.subviews[9].removeFromSuperview()
+                        
+                        
+                    }
+                    self!.firstTime = 1
+                    
+
+                    
+                    strongSelf.benchmarkLabel.text = String(format: "%.2f",results.1)
+                    
+                    //strongSelf.bottomView.update(results :results.0)
                 }
+                
             }
         }
     }
+    func imageFromARGB32Bitmap(pixels: [PixelData], width: Int, height: Int) -> UIImage? {
+        guard width > 0 && height > 0 else { return nil }
+        guard pixels.count == width * height else { return nil }
 
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
+        let bitsPerComponent = 8
+        let bitsPerPixel = 32
+
+        var data = pixels // Copy to mutable []
+        guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
+                                length: data.count * MemoryLayout<PixelData>.size)
+            )
+            else { return nil }
+
+        guard let cgim = CGImage(
+            width: width,
+            height: height,
+            bitsPerComponent: bitsPerComponent,
+            bitsPerPixel: bitsPerPixel,
+            bytesPerRow: width * MemoryLayout<PixelData>.size,
+            space: rgbColorSpace,
+            bitmapInfo: bitmapInfo,
+            provider: providerRef,
+            decode: nil,
+            shouldInterpolate: true,
+            intent: .defaultIntent
+            )
+            else { return nil }
+
+        return UIImage(cgImage: cgim)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)

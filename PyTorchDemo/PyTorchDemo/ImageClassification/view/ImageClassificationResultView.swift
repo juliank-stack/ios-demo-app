@@ -9,7 +9,7 @@ class ImageClassificationResultView: UIView {
         super.init(coder: coder)
         commonInit()
     }
-
+    
     func commonInit() {
         Bundle.main.loadNibNamed("ImageClassificationResultView", owner: self, options: nil)
         contentView.setup(self)
@@ -30,7 +30,7 @@ class ImageClassificationResultView: UIView {
             itemViews.append(itemView)
         }
     }
-
+    
     func update(results: Int) {
 //        for index in 0 ..< results.count {
 //            let itemView = itemViews[index]
@@ -38,6 +38,7 @@ class ImageClassificationResultView: UIView {
 //            itemView.scoreLabel.text = String(format: "%.2f", results[index].score)
 //        }
         let itemView = itemViews[1]
+        
         itemView.resultLabel.text = String(results)
         itemView.scoreLabel.text = String(results)
     }

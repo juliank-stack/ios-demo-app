@@ -3,7 +3,7 @@ import UIKit
 class ImagePredictor: Predictor {
     private var isRunning: Bool = false
     private lazy var module: VisionTorchModule = {
-        if let filePath = Bundle.main.path(forResource: "mobilenet_quantized", ofType: "pt"),
+        if let filePath = Bundle.main.path(forResource: "unoptimized_transPose", ofType: "pt"),
             let module = VisionTorchModule(fileAtPath: filePath) {
             return module
         } else {
@@ -20,7 +20,7 @@ class ImagePredictor: Predictor {
         }
     }()
 
-    func predict(_ buffer: [Float32], resultCount: Int) throws -> (Int, Double)? {
+    func predict(_ buffer: [Float32], resultCount: Int) throws -> ([NSNumber], Double)? {
         if isRunning {
             return nil
         }
@@ -32,7 +32,7 @@ class ImagePredictor: Predictor {
         }
         isRunning = false
         let inferenceTime = (CACurrentMediaTime() - startTime) * 1000
-        let results = 1
+        let results = outputs
         //let results = topK(scores: outputs, labels: labels, count: resultCount)
         return (results, inferenceTime)
     }
