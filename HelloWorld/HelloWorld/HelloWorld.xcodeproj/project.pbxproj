@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47564C4D2694D55400DB2D17 /* cpu.pt in Resources */ = {isa = PBXBuildFile; fileRef = 47564C4C2694D55400DB2D17 /* cpu.pt */; };
+		47564C4F2694D5B600DB2D17 /* Bild.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47564C4E2694D5B600DB2D17 /* Bild.jpeg */; };
+		47564C512694DC1100DB2D17 /* tpose.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 47564C502694DC1100DB2D17 /* tpose.jpeg */; };
 		A0497B682352FFA000D70E9E /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = A0497B672352FFA000D70E9E /* image.png */; };
 		A07753C62343DDEE00186969 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07753C52343DDEE00186969 /* AppDelegate.swift */; };
 		A07753CA2343DDEE00186969 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07753C92343DDEE00186969 /* ViewController.swift */; };
@@ -17,9 +20,16 @@
 		A07753E32343F9AD00186969 /* model.pt in Resources */ = {isa = PBXBuildFile; fileRef = A07753E12343F9AD00186969 /* model.pt */; };
 		A07753E42343F9AD00186969 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = A07753E22343F9AD00186969 /* words.txt */; };
 		A07753EA2343FDEC00186969 /* UIImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07753E92343FDEC00186969 /* UIImage+Helper.swift */; };
+		DE2B6583F9DE36119EC1F942 /* libPods-HelloWorld.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E32814A03F5A067A17A8B9A /* libPods-HelloWorld.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47564C4C2694D55400DB2D17 /* cpu.pt */ = {isa = PBXFileReference; lastKnownFileType = file; name = cpu.pt; path = ../../../../PyTorchDemo/PyTorchDemo/ImageClassification/model/cpu.pt; sourceTree = "<group>"; };
+		47564C4E2694D5B600DB2D17 /* Bild.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bild.jpeg; sourceTree = "<group>"; };
+		47564C502694DC1100DB2D17 /* tpose.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tpose.jpeg; sourceTree = "<group>"; };
+		4BAE087BDF16E193409AF414 /* Pods-HelloWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWorld.release.xcconfig"; path = "Target Support Files/Pods-HelloWorld/Pods-HelloWorld.release.xcconfig"; sourceTree = "<group>"; };
+		8EC826D5536FFF91E2872BF6 /* Pods-HelloWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWorld.debug.xcconfig"; path = "Target Support Files/Pods-HelloWorld/Pods-HelloWorld.debug.xcconfig"; sourceTree = "<group>"; };
+		9E32814A03F5A067A17A8B9A /* libPods-HelloWorld.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HelloWorld.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0497B672352FFA000D70E9E /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		A07753C22343DDEE00186969 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07753C52343DDEE00186969 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,17 +51,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2B6583F9DE36119EC1F942 /* libPods-HelloWorld.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15DDD2D1D5575949324400E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EC826D5536FFF91E2872BF6 /* Pods-HelloWorld.debug.xcconfig */,
+				4BAE087BDF16E193409AF414 /* Pods-HelloWorld.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		721A7D8CFA620CCB1FFB3255 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E32814A03F5A067A17A8B9A /* libPods-HelloWorld.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A07753B92343DDEE00186969 = {
 			isa = PBXGroup;
 			children = (
 				A07753C42343DDEE00186969 /* HelloWorld */,
 				A07753C32343DDEE00186969 /* Products */,
+				15DDD2D1D5575949324400E1 /* Pods */,
+				721A7D8CFA620CCB1FFB3255 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +96,8 @@
 		A07753C42343DDEE00186969 /* HelloWorld */ = {
 			isa = PBXGroup;
 			children = (
+				47564C502694DC1100DB2D17 /* tpose.jpeg */,
+				47564C4E2694D5B600DB2D17 /* Bild.jpeg */,
 				A0497B672352FFA000D70E9E /* image.png */,
 				A07753E02343F9AD00186969 /* model */,
 				A07753D92343EDE700186969 /* TorchBridge */,
@@ -93,6 +125,7 @@
 		A07753E02343F9AD00186969 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				47564C4C2694D55400DB2D17 /* cpu.pt */,
 				A07753E12343F9AD00186969 /* model.pt */,
 				A07753E22343F9AD00186969 /* words.txt */,
 			);
@@ -106,6 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A07753D62343DDEF00186969 /* Build configuration list for PBXNativeTarget "HelloWorld" */;
 			buildPhases = (
+				99264767D9364B5A43A23162 /* [CP] Check Pods Manifest.lock */,
 				A07753BE2343DDEE00186969 /* Sources */,
 				A07753BF2343DDEE00186969 /* Frameworks */,
 				A07753C02343DDEE00186969 /* Resources */,
@@ -158,9 +192,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47564C512694DC1100DB2D17 /* tpose.jpeg in Resources */,
+				47564C4F2694D5B600DB2D17 /* Bild.jpeg in Resources */,
 				A07753D22343DDEF00186969 /* LaunchScreen.storyboard in Resources */,
 				A07753CF2343DDEF00186969 /* Assets.xcassets in Resources */,
 				A07753CD2343DDEE00186969 /* Main.storyboard in Resources */,
+				47564C4D2694D55400DB2D17 /* cpu.pt in Resources */,
 				A07753E42343F9AD00186969 /* words.txt in Resources */,
 				A07753E32343F9AD00186969 /* model.pt in Resources */,
 				A0497B682352FFA000D70E9E /* image.png in Resources */,
@@ -168,6 +205,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		99264767D9364B5A43A23162 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelloWorld-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A07753BE2343DDEE00186969 /* Sources */ = {
@@ -319,10 +381,12 @@
 		};
 		A07753D72343DDEF00186969 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EC826D5536FFF91E2872BF6 /* Pods-HelloWorld.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U78BBRH274;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HelloWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -330,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pytorch.mobile.HelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pytorch.mobile.HelloWorld234;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelloWorld/TorchBridge/HelloWorld-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -341,10 +405,12 @@
 		};
 		A07753D82343DDEF00186969 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BAE087BDF16E193409AF414 /* Pods-HelloWorld.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U78BBRH274;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HelloWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -352,7 +418,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pytorch.mobile.HelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pytorch.mobile.HelloWorld234;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelloWorld/TorchBridge/HelloWorld-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

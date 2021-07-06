@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47564C4B2694CFF800DB2D17 /* UIImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47564C4A2694CFF800DB2D17 /* UIImage+Helper.swift */; };
 		4769CD0426935F69004F11EC /* unoptimized_transPose.pt in Resources */ = {isa = PBXBuildFile; fileRef = 4769CD0326935F69004F11EC /* unoptimized_transPose.pt */; };
 		47735FC226933B7C00FC002F /* mobilenet_transPose2.pt in Resources */ = {isa = PBXBuildFile; fileRef = 47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */; };
 		478B4F5326947E430055F0CA /* resized-image-Promo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 478B4F5226947E430055F0CA /* resized-image-Promo.jpeg */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		31BA85984F6BA5A79F5994FE /* Pods-PyTorchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PyTorchDemo.debug.xcconfig"; path = "Target Support Files/Pods-PyTorchDemo/Pods-PyTorchDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		47564C4A2694CFF800DB2D17 /* UIImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helper.swift"; sourceTree = "<group>"; };
 		4769CD0326935F69004F11EC /* unoptimized_transPose.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = unoptimized_transPose.pt; sourceTree = "<group>"; };
 		47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobilenet_transPose2.pt; sourceTree = "<group>"; };
 		478B4F5226947E430055F0CA /* resized-image-Promo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "resized-image-Promo.jpeg"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				A06D4CCC2330AAA200763E16 /* CameraController.swift */,
 				A091B76123315D1A0008A5B8 /* CameraPreviewView.swift */,
 				A091B763233168DE0008A5B8 /* CVPixelBuffer+Helper.swift */,
+				47564C4A2694CFF800DB2D17 /* UIImage+Helper.swift */,
 			);
 			path = ImageClassification;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				A091B75E2330789A0008A5B8 /* ImageClassificationViewController.swift in Sources */,
 				A036EA2B233B167A00054A36 /* NLPPredictor.swift in Sources */,
 				A03349C8233DAE8F003425FD /* NLPResultView.swift in Sources */,
+				47564C4B2694CFF800DB2D17 /* UIImage+Helper.swift in Sources */,
 				A03349C2233D71E0003425FD /* ImageClassificationItemView.swift in Sources */,
 				A091B19923303F2D0008A5B8 /* ViewController.swift in Sources */,
 				A03349CC233DB0B0003425FD /* NLPItemView.swift in Sources */,

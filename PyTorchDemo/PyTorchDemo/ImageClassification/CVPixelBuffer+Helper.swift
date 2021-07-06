@@ -17,7 +17,7 @@ extension CVPixelBuffer {
         guard let baseAddr = CVPixelBufferGetBaseAddress(self)?.advanced(by: oriY * bytesPerRow + oriX * bytesPerPixel) else {
             return nil
         }
-        var inBuff = vImage_Buffer(data: baseAddr, height: UInt(croppedImageSize), width: UInt(croppedImageSize), rowBytes: bytesPerRow)
+        var inBuff = vImage_Buffer(data: baseAddr, height: UInt(1080), width: UInt(1920), rowBytes: bytesPerRow)
         guard let dstData = malloc(width * height * bytesPerPixel) else {
             return nil
         }
@@ -28,6 +28,7 @@ extension CVPixelBuffer {
             free(dstData)
             return nil
         }
+        
         var normalizedBuffer: [Float32] = [Float32](repeating: 0, count: width * height * 3)
         // normalize the pixel buffer
         // see https://pytorch.org/hub/pytorch_vision_mobilenet_v2/ for more detail

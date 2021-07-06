@@ -63,7 +63,7 @@ class ImageClassificationViewController: ViewController {
                                 //pixels.append(PixelData(a: 0,  r:   0   ,g:0,b:0))
                             }
                             //let val = UInt8(slice[x]*255/max!)
-                            pixels.append(PixelData(a: UInt8((slice[x]-min!)*255/(max! - min!)),  r:   255   ,g:0,b:0))
+                            pixels.append(PixelData(a: UInt8((slice[x]-min!)*255/(max! - min!)),  r:   0   ,g:0,b:255))
                             if max! > 0.6 {
                                 print("something")
                             }
@@ -71,7 +71,7 @@ class ImageClassificationViewController: ViewController {
                         
                         let image = self!.imageFromARGB32Bitmap(pixels: pixels, width: 48, height: 64)
                         let imageView = UIImageView(image: image!)
-                        imageView.frame = CGRect(x: 100, y: 100, width: 480, height: 640)
+                        imageView.frame = CGRect(x: 0, y: 100, width: 48, height: 64)
                         //imageView.transform = imageView.transform.rotated(by: .pi / 2)
                         strongSelf.cameraView.addSubview(imageView)
                     }

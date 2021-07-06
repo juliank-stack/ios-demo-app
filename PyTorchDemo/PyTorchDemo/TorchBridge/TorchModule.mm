@@ -69,9 +69,6 @@
       
       
       
-      
-      
-      
     at::Tensor unsqueezed = tensor.unsqueeze(0);
     torch::autograd::AutoGradMode guard(false);
     at::AutoNonVariableTypeMode non_var_type_mode(true);
@@ -82,6 +79,7 @@
       //int height = 64;
       //cv::Mat outputMat(cv::Size{height,width}, CV_32F, outputTensor.data_ptr<float>());
       //UIImage* test = MatToUIImage(outputMat);
+    //std::cout << tensor << std::endl;
     //std::cout << outputTensor << std::endl;
     float* floatBuffer = outputTensor.data_ptr<float>();
     if (!floatBuffer) {
