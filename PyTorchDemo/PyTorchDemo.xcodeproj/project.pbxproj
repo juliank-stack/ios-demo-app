@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4769CD0426935F69004F11EC /* unoptimized_transPose.pt in Resources */ = {isa = PBXBuildFile; fileRef = 4769CD0326935F69004F11EC /* unoptimized_transPose.pt */; };
 		47735FC226933B7C00FC002F /* mobilenet_transPose2.pt in Resources */ = {isa = PBXBuildFile; fileRef = 47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */; };
+		478B4F5326947E430055F0CA /* resized-image-Promo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 478B4F5226947E430055F0CA /* resized-image-Promo.jpeg */; };
+		478B4F55269482EE0055F0CA /* cpu.pt in Resources */ = {isa = PBXBuildFile; fileRef = 478B4F54269482EE0055F0CA /* cpu.pt */; };
 		479C96A82690A347000B5674 /* mobilenet_transPose.pt in Resources */ = {isa = PBXBuildFile; fileRef = 479C96A72690A346000B5674 /* mobilenet_transPose.pt */; };
 		A01F52AC233C6C32004039FC /* topics.txt in Resources */ = {isa = PBXBuildFile; fileRef = A01F52AB233C6C32004039FC /* topics.txt */; };
 		A01F52AE233C985C004039FC /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F52AD233C985C004039FC /* Predictor.swift */; };
@@ -51,6 +53,8 @@
 		31BA85984F6BA5A79F5994FE /* Pods-PyTorchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PyTorchDemo.debug.xcconfig"; path = "Target Support Files/Pods-PyTorchDemo/Pods-PyTorchDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4769CD0326935F69004F11EC /* unoptimized_transPose.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = unoptimized_transPose.pt; sourceTree = "<group>"; };
 		47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobilenet_transPose2.pt; sourceTree = "<group>"; };
+		478B4F5226947E430055F0CA /* resized-image-Promo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "resized-image-Promo.jpeg"; sourceTree = "<group>"; };
+		478B4F54269482EE0055F0CA /* cpu.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = cpu.pt; sourceTree = "<group>"; };
 		479C96A72690A346000B5674 /* mobilenet_transPose.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobilenet_transPose.pt; sourceTree = SOURCE_ROOT; };
 		8E8B9985A0DE1CFCD23EA1FE /* libPods-PyTorchDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PyTorchDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01F52AB233C6C32004039FC /* topics.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = topics.txt; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 		A091B7582330778B0008A5B8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				478B4F54269482EE0055F0CA /* cpu.pt */,
+				478B4F5226947E430055F0CA /* resized-image-Promo.jpeg */,
 				4769CD0326935F69004F11EC /* unoptimized_transPose.pt */,
 				47735FC126933B7C00FC002F /* mobilenet_transPose2.pt */,
 				B1C35BA625C99B5200CAB118 /* trace_model.py */,
@@ -319,8 +325,10 @@
 				A091B19E23303F2D0008A5B8 /* Assets.xcassets in Resources */,
 				479C96A82690A347000B5674 /* mobilenet_transPose.pt in Resources */,
 				A03349CA233DAE9F003425FD /* NLPResultView.xib in Resources */,
+				478B4F55269482EE0055F0CA /* cpu.pt in Resources */,
 				A03349C4233D71F2003425FD /* ImageClassificationItemView.xib in Resources */,
 				47735FC226933B7C00FC002F /* mobilenet_transPose2.pt in Resources */,
+				478B4F5326947E430055F0CA /* resized-image-Promo.jpeg in Resources */,
 				A036EA33233C19F500054A36 /* reddit.pt in Resources */,
 				B1C35BA725C99B5200CAB118 /* trace_model.py in Resources */,
 				A03349CE233DB128003425FD /* NLPItemView.xib in Resources */,

@@ -66,7 +66,7 @@ class CameraController: NSObject {
     }
 
     private func configCameraInput() throws {
-        guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
+        guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
             throw CameraControllerError.cameraConfigError
         }
         let input = try AVCaptureDeviceInput(device: camera)

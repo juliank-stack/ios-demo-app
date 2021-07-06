@@ -56,14 +56,13 @@
 - (NSArray<NSNumber*>*)predictImage:(void*)imageBuffer {
   try {
       
-      cv::Mat img;
-      img = cv::Mat(256, 192, CV_32F, imageBuffer);
+      //cv::Mat img;
+      //img = cv::Mat(256, 192, CV_32F, imageBuffer);
 
       //cv::cvtColor(mat, _mat, CV_BGRA2BGR);
       //std::cout << img.at<float>(0,2) << std::endl;
       //img.convertTo( img, CV_32FC3, 1/255.0 );
-      at::Tensor tensor = torch::from_blob(imageBuffer, {1,3,256,192}, at::kFloat);
-      
+      at::Tensor tensor = torch::from_blob(imageBuffer, {3,256,192}, at::kFloat);
       
       
       
@@ -78,7 +77,11 @@
     at::AutoNonVariableTypeMode non_var_type_mode(true);
     
     // Erwartete Tensorgröße {1,17,64,48}
-    at::Tensor outputTensor = _impl.forward({tensor}).toTensor();
+    at::Tensor outputTensor = _impl.forward({unsqueezed}).toTensor();
+      //int width = 48;
+      //int height = 64;
+      //cv::Mat outputMat(cv::Size{height,width}, CV_32F, outputTensor.data_ptr<float>());
+      //UIImage* test = MatToUIImage(outputMat);
     //std::cout << outputTensor << std::endl;
     float* floatBuffer = outputTensor.data_ptr<float>();
     if (!floatBuffer) {

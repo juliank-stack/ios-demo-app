@@ -24,13 +24,13 @@ class ImageClassificationViewController: ViewController {
         super.viewDidLoad()
         bottomView.config(resultCount: 3)
         cameraController.configPreviewLayer(cameraView)
-        cameraController.videoCaptureCompletionBlock = { [weak self] buffer, error in
+        cameraController.videoCaptureCompletionBlock = { [weak self] normalizedBuffer, error in
             guard let strongSelf = self else { return }
             if error != nil {
                 strongSelf.showAlert(error)
                 return
             }
-            guard let pixelBuffer = buffer else { return }
+            guard let pixelBuffer = normalizedBuffer else { return }
             let currentTimestamp = CACurrentMediaTime()
             if (currentTimestamp - strongSelf.prevTimestampMs) * 1000 <= strongSelf.delayMs { return }
             strongSelf.prevTimestampMs = currentTimestamp
@@ -45,31 +45,33 @@ class ImageClassificationViewController: ViewController {
                     //let red = PixelData(a: 100, r: 255, g: 0, b: 0)
                     //let green = PixelData(a: 100, r: 0, g: 255, b: 0)
                     //let blue = PixelData(a: 100, r: 0, g: 0, b: 255)
-                    let swiftArray: [Double] = results.0.compactMap({ $0 as? Double })
-                    for hm in 1...1 {
+                    let swiftArray: [Float] = results.0.compactMap({ $0 as? Float })
+                    for hm in 5...5 {
                         var pixels = [PixelData]()
-                        let slice: ArraySlice<Double>
+                        let slice: ArraySlice<Float>
                         let overBorder = hm * 3072 - 1
                         let underBorder = overBorder - 3071
                         slice = swiftArray[underBorder...overBorder]
                         let max = slice.max()
-                        //let min = slice.min()
+                        let min = slice.min()
                         
-                        for x in underBorder...overBorder {
+                        for x in underBorder...overBorder{
                             if slice[x] == max {
-                                //pixels.append(PixelData(a: UInt8(slice[x]*255/max!),  r:   255   ,g:0,b:0))
+                                //pixels.append(PixelData(a: 255,  r:   255   ,g:0,b:0))
                             }
                             else {
                                 //pixels.append(PixelData(a: 0,  r:   0   ,g:0,b:0))
                             }
                             //let val = UInt8(slice[x]*255/max!)
-                            pixels.append(PixelData(a: UInt8(slice[x]*255/max!),  r:   255   ,g:0,b:0))
-                            
+                            pixels.append(PixelData(a: UInt8((slice[x]-min!)*255/(max! - min!)),  r:   255   ,g:0,b:0))
+                            if max! > 0.6 {
+                                print("something")
+                            }
                         }
                         
                         let image = self!.imageFromARGB32Bitmap(pixels: pixels, width: 48, height: 64)
                         let imageView = UIImageView(image: image!)
-                        imageView.frame = CGRect(x: 100, y: 100, width: 48*6, height: 64*6)
+                        imageView.frame = CGRect(x: 100, y: 100, width: 480, height: 640)
                         //imageView.transform = imageView.transform.rotated(by: .pi / 2)
                         strongSelf.cameraView.addSubview(imageView)
                     }
